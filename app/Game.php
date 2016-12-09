@@ -20,6 +20,14 @@ class Game extends Model
         # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
         return $this->belongsToMany('App\Tag')->withTimestamps();
     }
+	
+	
+    public function types()
+    {
+        # With timetsamps() will ensure the pivot table has its created_at/updated_at fields automatically maintained
+        return $this->belongsToMany('App\Type')->withTimestamps();
+    }
+	
     public function player() {
         return $this->belongsTo('App\player');
     }

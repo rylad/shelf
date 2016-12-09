@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', 'GameController');
+Route::resource('/games', 'GameController');
+
 
 Route::get('/debug', function() {
 

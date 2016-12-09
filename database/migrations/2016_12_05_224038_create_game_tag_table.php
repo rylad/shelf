@@ -20,6 +20,6 @@ class CreateGameTagTable extends Migration
     }
     public function down()
     {
-        Schema::drop('game_tags');
+        Schema::drop('game_tag');
     }
 }

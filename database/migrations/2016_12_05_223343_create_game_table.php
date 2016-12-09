@@ -26,7 +26,6 @@ class CreateGameTable extends Migration
 			# The rest of the fields...
 			$table->string('game');
 			$table->integer('rating');
-			$table->string('type');
 			$table->integer('no_players');
 			$table->string('purchase_link');
 			$table->string('geek_link');

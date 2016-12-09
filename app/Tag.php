@@ -7,9 +7,9 @@ class Tag extends Model
     /**
 	*
 	*/
-    public function books()
+    public function games()
     {
-        return $this->belongsToMany('App\Games')->withTimestamps();
+        return $this->belongsToMany('App\Game')->withTimestamps();
     }
     /* End Relationship Methods */
     /**
