@@ -30,10 +30,18 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
-		return view('game.create');
 
-    }
+        $tags_for_checkboxes = Tag::getForCheckboxes();
+        $types_for_checkboxes = Type::getForCheckboxes();
+		
+
+        return view('game.create')->with(
+            [
+                'types_for_checkboxes' => $types_for_checkboxes,
+                'tags_for_checkboxes' => $tags_for_checkboxes,
+            ]
+        );
+    }	
 
     /**
      * Store a newly created resource in storage.

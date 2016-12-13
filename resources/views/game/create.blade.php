@@ -1,49 +1,124 @@
 @extends('layouts.master')
 
-
-@section('title', 'Game Shelf')
-
-{{--
-This `head` section will be yielded right before the closing </head> tag.
-Use it to add specific things that *this* View needs in the head,
-such as a page specific stylesheets.
---}}
-@section('head')
-    
-@endsection
-
+@section('title')
+	Add a new Game
+@stop
 
 @section('content')
-	<h1> Lets Create a Game</h1><br>
-	<hr>
 
-		<form method='POST' action='/books'>
-			{{ csrf_field() }}
-			<input type='text' name='game' placeholder='Game Name'>
-			<input type='text' name='rating' placeholder='Rating (1-10)'>
-			<input type='text' name='type'>
-			<select name='no_players'>
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
-				<option>6</option>
-			</select>
-			<input type='text' name='purchase_link' placeholder='Amazon Purchase Link'>
-			<input type='text' name='geek_link' placeholder='BoardGame Geek Link'>
-			<input type='text' name='art' placeholder='Link to Box Image'>
-			<input type='submit' placeholder='Submit'>
-		</form>
-	
-@endsection
+    <h1>Add a new game </h1>
+
+    <form method='POST' action='/games'>
+
+        {{ csrf_field() }}
+
+        <div class='form-group'>
+            <label>Game Name:</label>
+            <input
+            type='text'
+            id='game'
+            name='game'
+            placeholder='Game Name'
+            >
+            <div class='error'>{{ $errors->first('game') }}</div>
+        </div>
 
 
-{{--
-This `body` section will be yielded right before the closing </body> tag.
-Use it to add specific things that *this* View needs at the end of the body,
-such as a page specific JavaScript files.
---}}
-@section('body')
-    <script src="/js/books/show.js"></script>
-@endsection
+        <div class='form-group'>
+            <label>Rating:</label>
+            <input
+            type='text'
+            id='rating'
+            name='rating'
+            placeholder='Rating'
+            >
+            <div class='error'>{{ $errors->first('rating') }}</div>
+        </div>
+		
+        <div class='form-group'>
+            <label>Number of Players:</label>
+            <input
+            type='text'
+            id='no_players'
+            name='no_players'
+            placeholder='# of Players'
+            >
+            <div class='error'>{{ $errors->first('no_players') }}</div>
+        </div>
+		
+        <div class='form-group'>
+            <label>URL to purchase this game:</label>
+            <input
+            type='text'
+            id='purchase_link'
+            name='purchase_link'
+            placeholder='Purchase Link'
+            >
+            <div class='error'>{{ $errors->first('purchase_link') }}</div>
+        </div>
+
+        <div class='form-group'>
+            <label>Board Game Geek URL:</label>
+            <input
+            type='text'
+            id='geek_link'
+            name='geek_link'
+            placeholder='Board Game Geek URL'
+            >
+            <div class='error'>{{ $errors->first('geek_link') }}</div>
+        </div>
+
+		
+		<div class='form-group'>
+            <label>URL of cover art:</label>
+            <input
+            type='text'
+            id='art'
+            name='art'
+            placeholder='art'
+            >
+            <div class='error'>{{ $errors->first('art') }}</div>
+        </div>
+
+        <div class='form-group'>
+            <label>Types</label><br>
+
+			@foreach($types_for_checkboxes as $type_id => $type_name)
+                <input
+                type='checkbox'
+                value='{{ $type_id }}'
+                name='types[]' >{{ $type_name}} <br>
+			@endforeach
+        </div
+		
+        </div>
+		
+        <div class='form-group'>
+            <label>Tags</label><br>
+
+			@foreach($tags_for_checkboxes as $tag_id => $tag_name)
+                <input
+                type='checkbox'
+                value='{{ $tag_id }}'
+                name='tags[]' >{{ $tag_name}} <br>
+			@endforeach
+        </div>
+
+
+        <div class='form-instructions'>
+            All fields are required
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save changes</button>
+
+
+        <div class='error'>
+            @if(count($errors) > 0)
+                Please correct the errors above and try again.
+            @endif
+        </div>
+
+    </form>
+
+
+@stop
