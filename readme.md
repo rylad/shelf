@@ -21,8 +21,8 @@ I made a tacking system for games that you own, you can add, read, update, and d
 http://shelfthehomelabs.com
 
 ##Demo
-INSERT DEMO LINK HERE
-
+Part 1:https://youtu.be/UwVB8VRUAuU
+Part 2:https://youtu.be/XJlY5AFEAdU
 
 
 
