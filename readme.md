@@ -1,27 +1,28 @@
-# Laravel PHP Framework
+# My Game Shelf
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+#CSCI E-15, Project 4, the grand finale
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+##Final Project
+###Objectives
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+There is no better way for me to explain this, so I will list the requirements:
 
-## Official Documentation
+This project is open-ended. Whatever you create, the main expectation is that the project meets the following criteria:
+Uses PHP/Laravel.
+Uses a database with at least 2 tables. This count does not include a users table, but does include pivot tables.
+Demonstrates all 4 CRUD interactions (user signup/login does not count towards this).
+Demonstrates server-side error validation.
+If you started this course at a more advanced level and your confidence in the material is high, you are encouraged to create an application of your choosing.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+##What I Made
+I made a tacking system for games that you own, you can add, read, update, and delete games. You can also track gaming session that you play with dynamically update games from the database.
 
-## Contributing
+##Live URL
+http://shelfthehomelabs.com
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+##Demo
+INSERT DEMO LINK HERE
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
