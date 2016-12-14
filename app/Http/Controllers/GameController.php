@@ -17,10 +17,21 @@ class GameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-		return view('game.index');
+        $user = $request->user();
+		
+		if ($user){
+			#$games=$user->games()->get();
+			$games = Game::where('user_id', '=', $user->id)->orderBy('id','DESC')->get();
+		}
+		else{
+			$games=[];
+		}
+		
+		return view('game.index')->with([
+			'games'=> $games
+		]);
     }
 
     /**
@@ -51,7 +62,16 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        $game = $request->input('game');
+		$this->validate($request, [
+            'game' => 'required|min:5',
+            'rating' => 'required|min:1 | max:10 |numeric',
+            'no_players' => 'required|min:1|max:20|numeric',
+            'purchase_link' => 'required|url',
+			'geek_link' => 'required|url',
+			'art_link' => 'required|url',
+        ]);
+		
+		$game = $request->input('game');
         
 		$game = new Game();
         $game->game = $request->input('game');
@@ -60,6 +80,7 @@ class GameController extends Controller
 	    $game->purchase_link = $request->input('purchase_link');
 		$game->geek_link = $request->input('geek_link');
 		$game->art = $request->input('art');
+		$game->user_id=$request->user()->id;
         $game->save();
 		
         # Save Tags
@@ -139,7 +160,16 @@ class GameController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+ 
+	$this->validate($request, [
+            'game' => 'required|min:5',
+            'rating' => 'required|min:1 | max:10 |numeric',
+            'no_players' => 'required|min:1|max:20|numeric',
+            'purchase_link' => 'required|url',
+			'geek_link' => 'required|url',
+			'art_link' => 'required|url',
+        ]);
+
 	$game=Game::find($request->id);
 	$game->game = $request->game;
 	$game->rating = $request->rating;
@@ -181,8 +211,37 @@ class GameController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+	public function delete($id){
+		
+		$game=Game::find($id);
+		return view('game.delete')->with('game',$game);
+		
+	}
+
+	 public function destroy($id)
     {
-        //
+        # Get the game to be deleted
+        $game = game::find($id);
+        if(is_null($game)) {
+            Session::flash('message','game not found.');
+            return redirect('/games');
+        }
+        # First remove any tags associated with this game
+        if($game->tags()) {
+            $game->tags()->detach();
+        }
+		
+		if($game->types()) {
+            $game->types()->detach();
+        }
+		
+		
+		
+        # Then delete the game
+        $game->delete();
+        # Finish
+        Session::flash('flash_message', $game->game.' was deleted.');
+        return redirect('/games');
     }
 }

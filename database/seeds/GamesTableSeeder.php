@@ -13,8 +13,9 @@ class GamesTableSeeder extends Seeder
             'rating' => '1',
             'no_players' => '4',
             'purchase_link' => 'https://www.amazon.com/Z-Man-Games-ZMG-71100-Pandemic/dp/B00A2HD40E/ref=sr_1_1?s=toys-and-games&ie=UTF8&qid=1480978494&sr=1-1&keywords=pandemic',
-            'geek_link' => 'https://boardgamegeek.com/boardgame/30549/pandemic', # <--- NEW LINE
-			'art' => 'https://cf.geekdo-images.com/images/pic1534148.jpg', # <--- NEW LINE
+            'geek_link' => 'https://boardgamegeek.com/boardgame/30549/pandemic',
+			'art' => 'https://cf.geekdo-images.com/images/pic1534148.jpg', 
+			'user_id' => 1, 
         ]);
         
         DB::table('games')->insert([
@@ -24,8 +25,9 @@ class GamesTableSeeder extends Seeder
             'rating' => '2',
             'no_players' => '4',
             'purchase_link' => 'https://www.amazon.com/Days-of-Wonder-DOW-7201/dp/0975277324',
-            'geek_link' => 'https://boardgamegeek.com/boardgame/9209/ticket-ride', # <--- NEW LINE
-			'art' => 'https://images-na.ssl-images-amazon.com/images/I/61dDQUfhuvL._SX300_.jpg', # <--- NEW LINE
+            'geek_link' => 'https://boardgamegeek.com/boardgame/9209/ticket-ride',
+			'art' => 'https://images-na.ssl-images-amazon.com/images/I/61dDQUfhuvL._SX300_.jpg',
+			'user_id' => 1, 
         ]);
 		
 		DB::table('games')->insert([
@@ -35,8 +37,9 @@ class GamesTableSeeder extends Seeder
             'rating' => '3',
             'no_players' => '2',
             'purchase_link' => 'https://www.amazon.com/GMT-Games-0510-14-Twilight-Struggle/dp/B0060L6EE4',
-            'geek_link' => 'https://boardgamegeek.com/boardgame/12333/twilight-struggle', # <--- NEW LINE
-			'art' => 'https://cf.geekdo-images.com/images/pic361592.jpg', # <--- NEW LINE
+            'geek_link' => 'https://boardgamegeek.com/boardgame/12333/twilight-struggle',
+			'art' => 'https://cf.geekdo-images.com/images/pic361592.jpg',
+			'user_id' => 1, 
         ]);
     }
 }

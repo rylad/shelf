@@ -11,8 +11,24 @@
 |
 */
 
-Route::resource('/', 'GameController');
-Route::resource('/games', 'GameController');
+Route::resource('/', 'PageController@welcome');
+
+
+Route::get('/games', 'GameController@index')->name('games.index')->middleware('auth');
+# Show a form to create a new game
+Route::get('/games/create', 'GameController@create')->name('games.create')->middleware('auth');
+# Process the form to create a new game
+Route::post('/games', 'GameController@store')->name('games.store')->middleware('auth');
+# Show an individual game
+Route::get('/games/{title}', 'GameController@show')->name('games.show');
+# Show form to edit a game
+Route::get('/games/{id}/edit', 'GameController@edit')->name('games.edit')->middleware('auth');
+# Process form to edit a game
+Route::put('/games/{id}', 'GameController@update')->name('games.update')->middleware('auth');
+# Get route to confirm deletion of game
+Route::get('/games/{id}/delete', 'GameController@delete')->name('games.destroy')->middleware('auth');
+# Delete route to actually destroy the game
+Route::delete('/games/{id}', 'GameController@destroy')->name('games.destroy')->middleware('auth');
 
 
 Route::get('/debug', function() {
@@ -49,3 +65,31 @@ Route::get('/debug', function() {
     echo '</pre>';
 
 });
+
+if(App::environment('local')) {
+
+    Route::get('/drop', function() {
+
+        DB::statement('DROP database shelf');
+        DB::statement('CREATE database shelf');
+
+        return 'Dropped shelf; created shelf.';
+    });
+
+};
+
+Route::get('/show-login-status', function() {
+
+    # You may access the authenticated user via the Auth facade
+    $user = Auth::user();
+
+    if($user)
+        dump($user->toArray());
+    else
+        dump('You are not logged in.');
+
+    return;
+});
+
+Auth::routes();
+Route::get('/logout','Auth\LoginController@logout')->name('logout');

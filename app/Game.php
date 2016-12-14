@@ -31,5 +31,10 @@ class Game extends Model
     public function player() {
         return $this->belongsTo('App\player');
     }
+	
+	public function user() {
+        return $this->belongsTo('App\User');
+    }
+	
     /* End Relationship Methods */
 }
