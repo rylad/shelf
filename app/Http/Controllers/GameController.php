@@ -167,7 +167,7 @@ class GameController extends Controller
             'no_players' => 'required|min:1|max:20|numeric',
             'purchase_link' => 'required|url',
 			'geek_link' => 'required|url',
-			'art_link' => 'required|url',
+			'art' => 'required|url',
         ]);
 
 	$game=Game::find($request->id);
