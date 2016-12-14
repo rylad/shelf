@@ -1,20 +1,4 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Gist
- @rylad
- Watch 2
-  Star 0
-  Fork 1 susanBuck/foobooks
- Code  Issues 0  Pull requests 0  Projects 0  Wiki  Pulse  Graphs
-Branch: master Find file Copy pathfoobooks/public/css/foobooks.css
-51ec7f6  26 days ago
-@susanBuck susanBuck Misc. clean up, examples and features. See post in Piazza for more de…
-1 contributor
-RawBlameHistory     
-148 lines (121 sloc)  2.06 KB
+
 /* http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
 html {
   box-sizing: border-box;
@@ -91,6 +75,10 @@ section, header, nav {
     }
 }
 
+header{
+	background-color: lightgray;
+}
+
 nav ul {
     list-style-type:none;
     margin:0;
@@ -103,7 +91,6 @@ footer a:link, nav a:link {
 
 nav ul li {
     display:inline;
-    background-color:#eee;
     padding:5px;
     margin-right:5px;
 }

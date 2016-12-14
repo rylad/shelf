@@ -23,23 +23,20 @@
 		@endif
 		
 		<header>
-			<a href='/'>
-				<img src='http://www.gamepreserve.com/v/vspfiles/assets/images/wallofgamesFM.jpg'	alt='Game Shelf Logo' class='logo' style="width:850px;height:300px;">
-			</a>
 
 			<nav>
 				<ul>
 					@if(Auth::check())
-					<li><a href='/games'>View My Games</a></li>
-					<li><a href='/game_histories'>View Game Sessions</a></li>
-					<li><a href='/games/create'>Add a Game</a></li>
-					<li><a href='/game_histories/create'>Track a Game Session</a></li>
-					<li><a href='/logout'>Log Out</a></li>
+					<li><a href='/games'><i class='fa fa-home' aria-hidden="true"></i> View My Games</a></li>
+					<li><a href='/game_histories'><i class='fa fa-search' aria-hidden="true"></i> View Game Sessions</a></li>
+					<li><a href='/games/create'><i class='fa fa-plus' aria-hidden="true"></i> Add a Game</a></li>
+					<li><a href='/game_histories/create'><i class='fa fa-sticky-note' aria-hidden="true"></i> Track a Game Session</a></li>
+					<li><a href='/logout'><i class='fa fa-sign-out' aria-hidden="true"></i> Log Out</a></li>
 					
 					@else
-					<li><a href='/'>Home</a></li>
-					<li><a href='/login'>Log In</a></li>				
-					<li><a href='/register'>Register</a></li>				
+					<li><a href='/'><i class='fa fa-home' aria-hidden="true"></i> Home</a></li>
+					<li><a href='/login'><i class='fa fa-sign-in' aria-hidden="true"></i> Log In</a></li>				
+					<li><a href='/register'><i class='fa fa-clipboard' aria-hidden="true"></i> Register</a></li>				
 					@endif
 					
 				</ul>
@@ -55,7 +52,7 @@
 
 		<footer>
 			&copy; {{ date('Y') }}  
-			<a class='button' href='http://thehomelabs.com'><i class='fa fa-home' aria-hidden="true"></i> See My Other Projects</a>
+			<a class='button' href='http://thehomelabs.com'><i class='fa fa-flask' aria-hidden="true"></i> See My Other Projects</a>
 			<a class='button' href='https://github.com/rylad/shelf'><i class='fa fa-github' aria-hidden="true"></i> Find This on Github</a>
 		</footer>
 

@@ -12,6 +12,7 @@
 */
 
 Route::resource('/', 'PageController@welcome');
+Route::get('/home', 'GameController@index')->name('games.index')->middleware('auth');
 
 
 Route::get('/games', 'GameController@index')->name('games.index')->middleware('auth');
