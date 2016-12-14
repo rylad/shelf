@@ -22,6 +22,8 @@
                     <a href='/games/{{ $game->id }}'><h2 class='truncate'>{{ $game->game }}</h2></a>
 
                     <a href='/games/{{ $game->id }}'><img class='art' src='{{ $game->art }}' alt='Cover Art for {{ $game->game }}'></a>
+					<h2 class='truncate'>Max Players: {{$game->no_players}}</h2>
+					<h2 class='truncate'>Rating: {{$game->rating}}</h2>					
 
                     <div class='tags'>
                         @foreach($game->tags as $tag)
@@ -35,7 +37,7 @@
                     <a class='button' href='/games/{{ $game->id }}/edit'><i class='fa fa-pencil' aria-hidden="true"></i> Edit</a>
                     <a class='button' href='/games/{{ $game->id }}'><i class='fa fa-eye' aria-hidden="true"></i> View</a>
                     <a class='button' href='/games/{{ $game->id }}/delete'><i class='fa fa-trash' aria-hidden="true"></i> Delete</a>
-					<a class='button' href='/games/{{ $game->id }}/delete'><i class='fa fa-sticky-note-o' aria-hidden="true"></i> Log</a>
+					<a class='button' href='/game_histories'><i class='fa fa-sticky-note-o' aria-hidden="true"></i> Log</a>
                 </section>
             @endforeach
         </div>

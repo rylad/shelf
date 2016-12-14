@@ -6,23 +6,18 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateGameHistoryTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        //
+        Schema::create('game_histories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->timestamps();
+            $table->string('winner');
+			$table->integer('length');
+			
+        });
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        //
+        Schema::drop('game_histories');
     }
 }

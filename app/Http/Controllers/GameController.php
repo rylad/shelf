@@ -64,11 +64,11 @@ class GameController extends Controller
     {
 		$this->validate($request, [
             'game' => 'required|min:5',
-            'rating' => 'required|min:1 | max:10 |numeric',
+            'rating' => 'required|min:1 | max:10',
             'no_players' => 'required|min:1|max:20|numeric',
             'purchase_link' => 'required|url',
 			'geek_link' => 'required|url',
-			'art_link' => 'required|url',
+			'art' => 'required|url',
         ]);
 		
 		$game = $request->input('game');

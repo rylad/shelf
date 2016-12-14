@@ -31,8 +31,9 @@
 				<ul>
 					@if(Auth::check())
 					<li><a href='/games'>View My Games</a></li>
+					<li><a href='/game_histories'>View Game Sessions</a></li>
 					<li><a href='/games/create'>Add a Game</a></li>
-					<li><a href='/game/session'>Track a Game Session</a></li>
+					<li><a href='/game_histories/create'>Track a Game Session</a></li>
 					<li><a href='/logout'>Log Out</a></li>
 					
 					@else

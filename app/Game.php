@@ -36,5 +36,17 @@ class Game extends Model
         return $this->belongsTo('App\User');
     }
 	
-    /* End Relationship Methods */
+	public function Game_historys() {
+		return $this->hasMany('App\game_history');
+    }
+	
+    public static function getForDropdown() {
+        # game
+        $games = game::orderBy('game', 'ASC')->get();
+        $games_for_dropdown = [];
+        foreach($games as $game) {
+            $games_for_dropdown[$game->id] = $game->game;
+        }
+        return $games_for_dropdown;	
+	}
 }

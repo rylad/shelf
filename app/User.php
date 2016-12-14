@@ -27,8 +27,12 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 	
-	public function books() {
+	public function Games() {
         return $this->hasMany('App\Game');
+    }
+	
+	public function Game_historys() {
+        return $this->hasMany('App\game_history');
     }
 	
 }

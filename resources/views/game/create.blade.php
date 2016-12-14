@@ -18,30 +18,40 @@
             type='text'
             id='game'
             name='game'
-            placeholder='Game Name'
+            value={{old('game', 'Splendor')}}
             >
             <div class='error'>{{ $errors->first('game') }}</div>
         </div>
 
 
         <div class='form-group'>
-            <label>Rating:</label>
-            <input
+            <label>Rating (1-10):</label>
+            <select
             type='text'
             id='rating'
             name='rating'
-            placeholder='Rating'
             >
+				<option value='1'> 1 </option>
+				<option value='2'> 2 </option>
+				<option value='3'> 3 </option>
+				<option value='4'> 4 </option>
+				<option value='5'> 5 </option>
+				<option value='6'> 6 </option>
+				<option value='7'> 7 </option>
+				<option value='8'> 8 </option>
+				<option value='9'> 9 </option>
+				<option value='10'> 10 </option>
+			</select>
             <div class='error'>{{ $errors->first('rating') }}</div>
         </div>
 		
         <div class='form-group'>
-            <label>Number of Players:</label>
+            <label>Number of Players (max: 20):</label>
             <input
             type='text'
             id='no_players'
             name='no_players'
-            placeholder='# of Players'
+            value={{old('no_players', '4')}}
             >
             <div class='error'>{{ $errors->first('no_players') }}</div>
         </div>
@@ -52,7 +62,7 @@
             type='text'
             id='purchase_link'
             name='purchase_link'
-            placeholder='Purchase Link'
+            value={{old('purchase_link', 'https://www.amazon.com/Asmodee-SCSPL01-Splendor-Board-Game/dp/B00IZEUFIA')}}
             >
             <div class='error'>{{ $errors->first('purchase_link') }}</div>
         </div>
@@ -63,7 +73,7 @@
             type='text'
             id='geek_link'
             name='geek_link'
-            placeholder='Board Game Geek URL'
+            value={{old('geek_link', 'https://boardgamegeek.com/boardgame/148228/splendor')}}
             >
             <div class='error'>{{ $errors->first('geek_link') }}</div>
         </div>
@@ -75,7 +85,7 @@
             type='text'
             id='art'
             name='art'
-            placeholder='art'
+            value={{old('art', 'https://cf.geekdo-images.com/images/pic1904079.jpg')}}
             >
             <div class='error'>{{ $errors->first('art') }}</div>
         </div>

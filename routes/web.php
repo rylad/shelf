@@ -31,40 +31,23 @@ Route::get('/games/{id}/delete', 'GameController@delete')->name('games.destroy')
 Route::delete('/games/{id}', 'GameController@destroy')->name('games.destroy')->middleware('auth');
 
 
-Route::get('/debug', function() {
+Route::get('/game_histories', 'Game_HistoryController@index')->name('game_histories.index')->middleware('auth');
+# Show a form to create a new game_histories
+Route::get('/game_histories/create', 'Game_HistoryController@create')->name('game_histories.create')->middleware('auth');
+# Process the form to create a new game_histories
+Route::post('/game_histories', 'Game_HistoryController@store')->name('game_histories.store')->middleware('auth');
+# Show an individual game_histories
+Route::get('/game_histories/{title}', 'Game_HistoryController@show')->name('game_histories.show');
+# Show form to edit a game_histories
+Route::get('/game_histories/{id}/edit', 'Game_HistoryController@edit')->name('game_histories.edit')->middleware('auth');
+# Process form to edit a game_histories
+Route::put('/game_histories/{id}', 'Game_HistoryController@update')->name('game_histories.update')->middleware('auth');
+# Get route to confirm deletion of game_histories
+Route::get('/game_histories/{id}/delete', 'Game_HistoryController@delete')->name('game_histories.destroy')->middleware('auth');
+# Delete route to actually destroy the game_histories
+Route::delete('/game_histories/{id}', 'Game_HistoryController@destroy')->name('game_histories.destroy')->middleware('auth');
 
-    echo '<pre>';
 
-    echo '<h1>Environment</h1>';
-    echo App::environment().'</h1>';
-
-    echo '<h1>Debugging?</h1>';
-    if(config('app.debug')) echo "Yes"; else echo "No";
-
-    echo '<h1>Database Config</h1>';
-    /*
-    The following line will output your MySQL credentials.
-    Uncomment it only if you're having a hard time connecting to the database and you
-    need to confirm your credentials.
-    When you're done debugging, comment it back out so you don't accidentally leave it
-    running on your live server, making your credentials public.
-    */
-    //print_r(config('database.connections.mysql'));
-
-    echo '<h1>Test Database Connection</h1>';
-    try {
-        $results = DB::select('SHOW DATABASES;');
-        echo '<strong style="background-color:green; padding:5px;">Connection confirmed</strong>';
-        echo "<br><br>Your Databases:<br><br>";
-        print_r($results);
-    }
-    catch (Exception $e) {
-        echo '<strong style="background-color:crimson; padding:5px;">Caught exception: ', $e->getMessage(), "</strong>\n";
-    }
-
-    echo '</pre>';
-
-});
 
 if(App::environment('local')) {
 
